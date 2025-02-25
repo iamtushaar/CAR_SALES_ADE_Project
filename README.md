@@ -1,6 +1,6 @@
 # **Azure Data Engineering Project-CarSales: Medallion Architecture**
 
-This project is a data engineering solution built on Microsoft Azure, focused on processing car sales data using the Medallion Architecture (Bronze, Silver, and Gold layers). It automates data workflows to provide scalable and efficient processing from raw data to analytics-ready insights.
+This project is a data engineering solution built on Microsoft Azure, focused on processing car sales data using the Medallion Architecture (Raw, Curated, and Refined layers). It automates data workflows to provide scalable and efficient processing from raw data to analytics-ready insights.
 
 ## **System Architecture Overview**
 
@@ -11,7 +11,7 @@ The Medallion Architecture guides the data transformation, where the raw data fl
 3. **Refined Layer** - Analytics-ready data
 
 
-![architecture](https://github.com/Bhumin-Patel029/CarsProject_Images/blob/main/Architecture.png)
+
 
 ---
 
