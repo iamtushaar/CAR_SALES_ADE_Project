@@ -10,8 +10,7 @@ The Medallion Architecture guides the data transformation, where the raw data fl
 2. **Curated Layer** - Cleaned and enriched data
 3. **Refined Layer** - Analytics-ready data
 
-
-
+![image](https://github.com/user-attachments/assets/9842d4b4-3ef2-4522-98e4-2e866a467efc)
 
 ---
 
@@ -61,17 +60,17 @@ The Refined layer is the final output—cleaned and enriched data that can be us
 
 This pipeline fetches data from GitHub and loads it into the Azure SQL Database.
 
-![ingestion pipeline](https://github.com/Bhumin-Patel029/CarsProject_Images/blob/main/Source_Prep_Pipeline.png)
+![image](https://github.com/user-attachments/assets/69ea4d58-c5d7-4361-b1e1-4b0ed59f07ae)
 
 ### **Pipeline 2: Incremental Data Loading**
 
 This pipeline ensures that only new data is appended to the Raw layer in Azure Data Lake Gen 2.
 
-![incremental loading](https://github.com/Bhumin-Patel029/CarsProject_Images/blob/main/Incremental_Data_Pipeline.png)
+![image](https://github.com/user-attachments/assets/d7523b3a-d934-43d1-b872-6d06b18efad6)
 
 The expression in the pipeline's expression builder dynamically filters data from source_cars_data based on incremental loading. It selects records where Date_ID falls between the last and current load values, ensuring only new data is processed. A screenshot is provided for better clarity.
 
-![expression_builder](https://github.com/Bhumin-Patel029/CarsProject_Images/blob/main/Copy_Data_Expression_Builder.png)
+![image](https://github.com/user-attachments/assets/a3338793-d369-416c-9dfe-aa2d8ddc9be9)
 
 The stored procedure uses the below expression to retrieve the maximum date from the current load. This ensures that only new records up to the latest available date are processed in the incremental data pipeline.
 
@@ -87,7 +86,7 @@ SQL tables and procedures are created to facilitate data cleaning and transforma
 
 The raw data is transformed into structured tables with a star schema in Databricks.
 
-![databricks workflow](https://github.com/Bhumin-Patel029/CarsProject_Images/blob/main/Data_Model.png)
+![image](https://github.com/user-attachments/assets/d9b4f062-75ae-40f7-b8bc-81d39efdef7d)
 
 ### **Updated Incremental Data Loading Pipeline**
 
@@ -98,14 +97,13 @@ To enhance the efficiency of data transformation, a Databricks notebook has been
 - This approach ensures that both ADF and Databricks function as a single end-to-end pipeline, automating the entire data ingestion and transformation flow.
 - The notebook handles data cleansing, transformation, and structuring, making the final dataset ready for analytical use
 
-![updated_increm_pipeline](https://github.com/Bhumin-Patel029/CarsProject_Images/blob/main/Updated_Incremental_Loading.png)
-
+![image](https://github.com/user-attachments/assets/fb772b49-3815-429b-aa83-3ba6ba49ab3c)
 
 ### **Azure Resource Group**
 
 Overview of the deployed resources within Azure for this project.
 
-![resource group](https://github.com/Bhumin-Patel029/CarsProject_Images/blob/main/Resource_Group.png)
+![image](https://github.com/user-attachments/assets/9f64d999-b3df-4750-b33a-36cc11195461)
 
 ---
 
