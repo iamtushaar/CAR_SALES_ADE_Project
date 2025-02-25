@@ -1,4 +1,4 @@
-# **Azure End-to-End Data Engineering Project-CarSales: Medallion Architecture**
+# **Azure Data Engineering Project-CarSales: Medallion Architecture**
 
 This project is a data engineering solution built on Microsoft Azure, focused on processing car sales data using the Medallion Architecture (Bronze, Silver, and Gold layers). It automates data workflows to provide scalable and efficient processing from raw data to analytics-ready insights.
 
