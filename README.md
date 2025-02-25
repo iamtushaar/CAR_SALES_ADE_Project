@@ -6,9 +6,9 @@ This project is a data engineering solution built on Microsoft Azure, focused on
 
 The Medallion Architecture guides the data transformation, where the raw data flows through the following stages:
 
-1. **Bronze Layer** - Raw, unrefined data
-2. **Silver Layer** - Cleaned and enriched data
-3. **Gold Layer** - Analytics-ready data
+1. **Raw Layer** - Raw data
+2. **Curated Layer** - Cleaned and enriched data
+3. **Refined Layer** - Analytics-ready data
 
 
 ![architecture](https://github.com/Bhumin-Patel029/CarsProject_Images/blob/main/Architecture.png)
@@ -21,9 +21,9 @@ This project implements a robust data pipeline for car sales data using the Meda
 
 ### **Key Features**
 
-- **Three-Tier Architecture:** Data is processed and stored in separate stages (Bronze, Silver, Gold) for easy management and optimization.
+- **Three-Tier Architecture:** Data is processed and stored in separate stages (Raw, Curated, Refined) for easy management and optimization.
 - **Automated Pipeline:** Azure Data Factory orchestrates the entire pipeline, moving and transforming data automatically.
-- **Incremental Loading:** Data is added incrementally to the Bronze layer, ensuring efficient processing.
+- **Incremental Loading:** Data is added incrementally to the Raw layer, ensuring efficient processing.
 - **Data Cleanup:** Databricks handles data transformations, making the final dataset ready for analytics.
 - **Star Schema & SCD Type-1:** A star schema is used to structure the final dataset, with Slowly Changing Dimension (SCD) Type-1 for updating historical data.
 
@@ -33,7 +33,7 @@ This project implements a robust data pipeline for car sales data using the Meda
 
 - **Azure Data Factory** for orchestrating data movement.
 - **Azure SQL Database** for storing raw data.
-- **Azure Data Lake Gen 2** for tiered storage (Bronze, Silver, Gold).
+- **Azure Data Lake Gen 2** for tiered storage (Raw, Curated, Refined).
 - **Azure Databricks** for data transformation and enrichment.
 - **Star Schema & SCD Type-1** for efficient data modeling.
 
@@ -45,13 +45,13 @@ This project implements a robust data pipeline for car sales data using the Meda
 Data is fetched from an external source (e.g., GitHub) and loaded into Azure SQL Database using Azure Data Factory.
 
 ### **Step 2: Incremental Data Loading**
-New data is loaded incrementally into the Bronze layer of Azure Data Lake Gen 2. Azure Data Factory automates this process.
+New data is loaded incrementally into the Raw layer of Azure Data Lake Gen 2. Azure Data Factory automates this process.
 
 ### **Step 3: Data Transformation**
-Databricks processes the data, cleans it, and applies necessary transformations to build the Silver and Gold layers, structured into a star schema.
+Databricks processes the data, cleans it, and applies necessary transformations to build the Curated and Refined layers, structured into a star schema.
 
 ### **Step 4: Reporting-Ready Data**
-The Gold layer is the final output—cleaned and enriched data that can be used for business intelligence or reporting.
+The Refined layer is the final output—cleaned and enriched data that can be used for business intelligence or reporting.
 
 ---
 
@@ -65,7 +65,7 @@ This pipeline fetches data from GitHub and loads it into the Azure SQL Database.
 
 ### **Pipeline 2: Incremental Data Loading**
 
-This pipeline ensures that only new data is appended to the Bronze layer in Azure Data Lake Gen 2.
+This pipeline ensures that only new data is appended to the Raw layer in Azure Data Lake Gen 2.
 
 ![incremental loading](https://github.com/Bhumin-Patel029/CarsProject_Images/blob/main/Incremental_Data_Pipeline.png)
 
@@ -94,7 +94,7 @@ The raw data is transformed into structured tables with a star schema in Databri
 To enhance the efficiency of data transformation, a Databricks notebook has been integrated with the existing Azure Data Factory (ADF) pipeline. This integration allows ADF to orchestrate the entire data processing workflow seamlessly.
 
 - The Databricks notebook is triggered at the end of the incremental loading process in ADF.
-- Once the data is ingested into the Bronze layer of Azure Data Lake Gen 2, the Databricks notebook processes and moves it to the Silver and Gold layers.
+- Once the data is ingested into the Raw layer of Azure Data Lake Gen 2, the Databricks notebook processes and moves it to the Curated and Refined layers.
 - This approach ensures that both ADF and Databricks function as a single end-to-end pipeline, automating the entire data ingestion and transformation flow.
 - The notebook handles data cleansing, transformation, and structuring, making the final dataset ready for analytical use
 
