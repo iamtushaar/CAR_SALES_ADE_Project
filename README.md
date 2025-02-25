@@ -66,7 +66,7 @@ This pipeline fetches data from GitHub and loads it into the Azure SQL Database.
 
 This pipeline ensures that only new data is appended to the Raw layer in Azure Data Lake Gen 2.
 
-![image](https://github.com/user-attachments/assets/d7523b3a-d934-43d1-b872-6d06b18efad6)
+![image](https://github.com/user-attachments/assets/6f1d9cc0-c880-4a67-916f-330e43bda20b)
 
 The expression in the pipeline's expression builder dynamically filters data from source_cars_data based on incremental loading. It selects records where Date_ID falls between the last and current load values, ensuring only new data is processed. A screenshot is provided for better clarity.
 
@@ -74,13 +74,13 @@ The expression in the pipeline's expression builder dynamically filters data fro
 
 The stored procedure uses the below expression to retrieve the maximum date from the current load. This ensures that only new records up to the latest available date are processed in the incremental data pipeline.
 
-![expression_builder1](https://github.com/Bhumin-Patel029/CarsProject_Images/blob/main/Stored_Procdedure_Expression_Builder.png)
+![image](https://github.com/user-attachments/assets/fc0ad4df-75b1-478c-bdff-9878b9e2b998)
 
 ### **SQL Procedures and Data Transformation**
 
 SQL tables and procedures are created to facilitate data cleaning and transformations.
 
-![sql editor](https://github.com/Bhumin-Patel029/CarsProject_Images/blob/main/SQL_Editor.png)
+![image](https://github.com/user-attachments/assets/6154a51b-2b6a-4132-981e-8691dff1c70e)
 
 ### **Databricks Workflow: Building the Star Schema**
 
